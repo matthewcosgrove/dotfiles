@@ -1,6 +1,4 @@
 *.LSOverride
-Thumbs.db
-.bundle
 *.pydevproject
 target/
 pom.xml.tag
