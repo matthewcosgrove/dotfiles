@@ -24,6 +24,8 @@ then
   source ~/.bashrc
 fi
 
+# http://web.archive.org/web/20140813164713/http://blog.hgomez.net/blog/2012/07/20/understanding-java-from-command-line-on-osx/
+export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
 
 # Syntax-highlight code for copying and pasting.
 # Requires highlight (`brew install highlight`).
