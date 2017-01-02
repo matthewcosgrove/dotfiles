@@ -12,17 +12,13 @@ export PATH=/usr/local/bin:/usr/local/sbin:$HOME/bin:/usr/local/git/bin:$HOME/.c
 # Flush DNS cache (See: http://support.apple.com/kb/ht5343).
 alias flush-dns='sudo killall -HUP mDNSResponder'
 
-# Include alias file (if present) containing aliases for ssh, etc.
-if [ -f ~/.bash_aliases ]
-then
-  source ~/.bash_aliases
-fi
-
-# Include bashrc file (if present).
-if [ -f ~/.bashrc ]
-then
-  source ~/.bashrc
-fi
+# Load the shell dotfiles, and then some:
+# * ~/.path can be used to extend `$PATH`.
+# * ~/.extra can be used for other settings you don’t want to commit.
+for file in ~/.{bashrc,bash_aliases,aliases,path,exports,functions,extra}; do
+    [ -r "$file" ] && [ -f "$file" ] && source "$file";
+done;
+unset file;
 
 # http://web.archive.org/web/20140813164713/http://blog.hgomez.net/blog/2012/07/20/understanding-java-from-command-line-on-osx/
 export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
