@@ -616,6 +616,9 @@ defaults write com.google.Chrome DisablePrintPreview -bool true
 # Kill/restart affected applications                                          #
 ###############################################################################
 
+# Persist defaults with diff
+persistdefaultsduringbootstrap
+
 # Restart affected applications if `--no-restart` flag is not present.
 if [[ ! ($* == *--no-restart*) ]]; then
   for app in "cfprefsd" "Dock" "Finder" "Mail" "SystemUIServer" "Spectacle"; do

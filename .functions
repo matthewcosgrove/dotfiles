@@ -1,0 +1,20 @@
+function persistdefaultsduringbootstrap() {
+	prev_file=/tmp/bootstrap-defaults-prev-readonly.json
+	this_file=/tmp/bootstrap-defaults-latest-readonly.json
+	diff_file=/tmp/bootstrap-defaults-diff-latest.txt
+	long_term_diff_file=/tmp/bootstrap-defaults-diff-$( date +"%Y-%m-%d_%H-%M-%S" ).txt
+	long_term_ref_file=/tmp/bootstrap-defaults-$( date +"%Y-%m-%d_%H-%M-%S" ).json
+	touch $prev_file # Allow for chmod without error
+	if [[ -f $this_file ]]; then
+	 cp -f $this_file $prev_file
+	fi
+	defaults read > $this_file
+	defaults read > $long_term_ref_file
+	diff -u $this_file $prev_file > $diff_file
+	diff -u $this_file $prev_file > $long_term_diff_file
+	files="$prev_file $this_file $long_term_ref_file $diff_file $long_term_diff_file"
+	for f in $files
+	do
+	 chmod 600 "$f"
+	done
+}
