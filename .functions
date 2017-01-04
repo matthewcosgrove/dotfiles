@@ -18,3 +18,18 @@ function persistdefaultsduringbootstrap() {
 	 chmod 600 "$f"
 	done
 }
+
+function persistdefaults() {
+	prev_file=/tmp/defaults-prev-readonly.json
+	this_file=/tmp/defaults-latest-readonly.json
+	if [[ -f $this_file ]]; then
+	 cp -f $this_file $prev_file
+	fi
+
+	defaults read > $this_file
+}
+
+function diffdefaults() {
+	diff_file=/tmp/defaults-diff-latest.txt
+	diff -u $this_file $prev_file > $diff_file
+}
