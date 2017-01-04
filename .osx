@@ -327,6 +327,18 @@ defaults write com.apple.finder FXInfoPanesExpanded -dict \
 # Dock, Dashboard, and hot corners                                            #
 ###############################################################################
 
+# Reset default persistant apps in Dock to nothing
+defaults write com.apple.dock persistent-apps -array
+
+# Set persistent apps in Dock
+IFS=$':' # Space seperator no good for 'Google Chrome' etc
+apps="Launchpad:Google Chrome:Evernote:Spotify:Cyberduck:Xcode:STS:Sublime Text:Utilities/Terminal:Utilities/Activity Monitor"
+for app in $apps
+do
+ defaults write com.apple.dock persistent-apps -array-add "<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string>/Applications/${app}.app</string><key>_CFURLStringType</key><integer>0</integer></dict></dict></dict>"
+done
+unset IFS
+
 # Set the icon size of Dock items
 defaults write com.apple.dock tilesize -int 15
 
