@@ -15,7 +15,7 @@ alias flush-dns='sudo killall -HUP mDNSResponder'
 # Load the shell dotfiles, and then some:
 # * ~/.path can be used to extend `$PATH`.
 # * ~/.extra can be used for other settings you don’t want to commit.
-for file in ~/.{bashrc,bash_aliases,aliases,path,exports,functions,extra}; do
+for file in ~/.{bashrc,bash_aliases,aliases,path,exports,functions,extra,export-secrets}; do
     [ -r "$file" ] && [ -f "$file" ] && source "$file";
 done;
 unset file;
