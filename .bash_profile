@@ -21,7 +21,7 @@ done;
 unset file;
 
 # http://web.archive.org/web/20140813164713/http://blog.hgomez.net/blog/2012/07/20/understanding-java-from-command-line-on-osx/
-export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
+export JAVA_HOME=$(/usr/libexec/java_home -v 11.0)
 
 # Syntax-highlight code for copying and pasting.
 # Requires highlight (`brew install highlight`).
