@@ -1,6 +1,6 @@
 [user]
-  name = Matthew Cosgrove 
-  email = mcosgrove@pivotal.io
+  name = matthewcosgrove
+  email = mc.matthew.cosgrove@gmail.com
 [core]
   editor = vi
   excludesfile = ~/.gitignore
