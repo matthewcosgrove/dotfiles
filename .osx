@@ -332,7 +332,7 @@ defaults write com.apple.dock persistent-apps -array
 
 # Set persistent apps in Dock
 IFS=$':' # Space seperator no good for 'Google Chrome' etc
-apps="Launchpad:Google Chrome:Evernote:Spotify:Cyberduck:Xcode:STS:Sublime Text:Utilities/Terminal:Utilities/Activity Monitor"
+apps="Launchpad:Google Chrome:Evernote:Atom:Cyberduck:Utilities/Terminal:Utilities/Activity Monitor"
 for app in $apps
 do
  defaults write com.apple.dock persistent-apps -array-add "<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string>/Applications/${app}.app</string><key>_CFURLStringType</key><integer>0</integer></dict></dict></dict>"
